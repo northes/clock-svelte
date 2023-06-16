@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import { userName } from "$lib/stores";
+  import { GetIPInfo, GetGeo, GetWeather } from "$api/weather";
+  import type { weatherNow } from "$types/weather";
 
   let timeHour: number = 12;
   let timeMin: number = 0;
@@ -12,7 +14,7 @@
   //   let dateDayStr: string = "";
   let interval: any;
   let t: Date;
-  let name: string = "Northes";
+  // let name: string = "Northes";
   let greetStr = "Nice to meet you";
   let greetAuthor = "Somebody";
   let editMod: boolean = false;
@@ -62,13 +64,6 @@
   $: ampmStr = () => {
     return timeHour < 12 ? "AM" : "PM";
   };
-
-  // userName.subscribe((n) => {
-  //   name = n
-  // })
-
-  import { GetIPInfo, GetGeo, GetWeather } from "$api/weather";
-  import type { weatherNow } from "$types/types";
 
   let weatherInfo: weatherNow = {
     temp: "",

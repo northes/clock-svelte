@@ -1,7 +1,7 @@
 <script lang="ts">
   import { GetIPInfo, GetGeo, GetWeather } from "$api/weather";
   import { onMount } from "svelte";
-  import type { weatherNow } from "$types/types";
+  import type { weatherNow } from "$types/weather";
 
   let weatherInfo: weatherNow = {
     temp: "25",
