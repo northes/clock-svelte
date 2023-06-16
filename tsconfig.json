@@ -1,0 +1,17 @@
+{
+  "extends": "./.svelte-kit/tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": false,
+    "strictFunctionTypes": false,
+    "noUnusedLocals": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "allowSyntheticDefaultImports": true,
+      "resolveJsonModule": true
+    },
+    "moduleTypes": {}
+  },
+  "exclude": ["scripts/**/*.*", "node_modules/**"]
+}
