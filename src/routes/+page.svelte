@@ -10,7 +10,7 @@
   let dateYear: number = 0;
   let dateMon: number = 0;
   let dateDate: number = 0;
-  let dateDay: number = 1;
+  let dateDay: number = 0;
   //   let dateDayStr: string = "";
   let interval: any;
   let t: Date;
@@ -54,7 +54,7 @@
         return "星期五";
       case 6:
         return "星期六";
-      case 7:
+      case 0:
         return "星期日";
       default:
         return "今天是周几？";
