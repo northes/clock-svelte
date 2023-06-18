@@ -65,6 +65,26 @@
     return timeHour < 12 ? "AM" : "PM";
   };
 
+  let greetText: string = "Hello";
+  $: getGreet(timeHour);
+  function getGreet(hour) {
+    // console.log("hour", hour,16 <= hour || hour < 5);
+    switch (true) {
+      case 5 <= hour && hour < 12:
+        greetText = "Good Morning";
+        break
+      case 12 <= hour && hour < 16:
+        greetText = "Good Afternoon";
+        break
+      case 16 <= hour || hour < 5:
+        greetText = "Good Evening";
+        break
+      default:
+        greetText = "Hello";
+    }
+    // console.log(greetText);
+  }
+
   let weatherInfo: weatherNow = {
     temp: "",
     feels_like: "",
@@ -101,6 +121,14 @@
   onDestroy(() => {
     clearInterval(updateWeatherInterval);
   });
+
+  let userNameInput;
+  function editUserName() {
+    editMod = true;
+    setTimeout(() => {
+      userNameInput.focus();
+    }, 10);
+  }
 </script>
 
 <div class="text-zinc-200 flex flex-col items-cneter text-center md:w-4/6">
@@ -158,21 +186,18 @@
 
   <div class="flex flex-col items-center md:items-start mt-8">
     <div
-      class="text-sm md:text-2xl text-zinc-300"
-      on:click={() => {
-        editMod = true;
-      }}
-      on:keydown={() => {
-        editMod = true;
-      }}
+      class="text-sm md:text-2xl text-zinc-300 mb-2"
+      on:click={editUserName}
+      on:keydown={editUserName}
     >
-      Hello,
+      {greetText},
       {#if editMod}
         <input
           type="text"
           bind:value={$userName}
           class="border-0 border-transparent border-none"
           on:blur={() => (editMod = false)}
+          bind:this={userNameInput}
         />
       {:else}
         {$userName}
