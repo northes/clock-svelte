@@ -107,7 +107,7 @@
   <div class="font-bold text-xs self-start hidden md:block">{ampmStr()}</div>
 
   <div
-    class="md:flex md:items-center text-6xl md:text-9xl lg:text-10xl xl:text-12xl 2xl:text-13xl font-bold"
+    class="md:flex md:items-center text-8xl md:text-9xl lg:text-10xl xl:text-12xl 2xl:text-13xl font-bold"
   >
     <div>{beautifulStr(timeHour)}</div>
 
@@ -119,7 +119,7 @@
     <div class="font-thin text-sm md:hidden">-</div>
     <div class="hidden md:block">·</div>
 
-    <div class="text-sm md:text-9xl lg:text-10xl xl:text-12xl 2xl:text-13xl">
+    <div class="text-xl md:text-9xl lg:text-10xl xl:text-12xl 2xl:text-13xl">
       {beautifulStr(timeSec)}
     </div>
   </div>
